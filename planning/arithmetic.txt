@@ -1,0 +1,56 @@
+For now, this document will proceed as FUNC(x, y), where x and y are stand-ins 
+for char literals, followed by a process for generating brainfuck for FUNC.
+
+ADD(x, y): ^ => [x+y]
+    for (int i = 0; i < x; i++) {
+        putchar('+');
+    }
+    putchar('>');
+    for (int i = 0; i < y; i++) {
+        putchar('+');
+    }
+    puts("[<+>-]<");
+
+SUB(x, y): ^ => [x-y]
+    for (int i = 0; i < x; i++) {
+        putchar('+');
+    }
+    putchar('>');
+    for (int i = 0; i < y; i++) {
+        putchar('+');
+    }
+    puts("[<->-]<");
+
+MULT(x, y): ^ => ^[xy]
+    for (int i = 0; i < x; i++) {
+        putchar('+');
+    }
+    putchar('>');
+    for (int i = 0; i < y; i++) {
+        putchar('+');
+    }
+    puts("[<+>-]<");
+
+DIV(x, y): ^[0]*6 => ^[x div y] [x mod y] [y - x mod y]
+    puts(">>>");
+    for (int i = 0; i < x; i++) {
+        putchar('+');
+    }
+    putchar('<');
+    for (int i = 0; i < y; i++) {
+        putchar('+');
+    }
+    puts(">[
+        -
+        >+
+        <<<+
+        >-
+        [>>-<<[>>>+<<<-]]
+        >>>[<<<+>>>-]
+        <[
+            <<<[>+<-]
+            <+
+            >>>>-
+        ]
+        <
+    ]<<<");

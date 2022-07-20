@@ -1,0 +1,46 @@
+Helper functions:
+
+#include <math.h>
+
+typedef struct {
+        int lo;
+        int hi;
+        int rem;
+} close_div;
+
+close_div find_close_div(int x)
+{
+        if (x <= 15)
+                return (close_div) { 1, x, 0 };
+
+        int min_lo = 1, min_hi = x;
+        int min_length = x;
+
+        int curr_lo = 1, curr_hi = x, curr_length;
+        for (curr_lo = 1; curr_lo <= curr_hi; curr_lo++) {
+                curr_hi = x / curr_lo;
+                curr_length = x - curr_hi * curr_lo + curr_hi + curr_lo;
+                if (curr_length < min_length) {
+                        min_lo = curr_lo;
+                        min_hi = curr_hi;
+                        min_length = curr_length;
+                }
+        }
+
+        close_div result = { min_lo, min_hi, x - min_hi * min_lo };
+
+        return result;
+}
+For numbers 15 or less, it isn't helpful to factor
+
+
+PUTCHAR(c):
+    close_div factor = find_close_div(c);
+    if (factor.lo == 1) {
+        for (int i = 0; i < c; i++) {
+            putchar('+');
+        }
+        putchar('.');
+        return;
+    }
+    

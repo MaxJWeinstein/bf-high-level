@@ -1,0 +1,16 @@
+- Write argv_parse.c
+- Write lexer.c and tokens.c
+
+- Make an expandable lexer for C, starting with the basics
+- Write a parser that can handle arithmetic expressions with literals
+- Expand parser to handle boolean expressions with literals
+- Expand parser to handle getchar/puthcar
+- Expand parser to track integer-typed variables
+- Expand parser/lexer to track pointer types
+- Expand parser/lexer to track arrary types
+- Expand parser/lexer to track struct types and typedefs
+- Expand parser to track conditionals
+- Expand parser to track loops
+- Expand parser to work with macro-like functions
+- Include functionality to replace standard library functions
+- Create copy of parser to include recursive function calls

@@ -1,0 +1,24 @@
+This is going to be a C-like language. Probably going to eventually make another
+C2BF compiler, as that has some utility. But I won't worry at first about being
+very close to C.
+
+One challenge of making an actual C2BF compiler is handling the stack and 
+recursion. It can be done (my current idea is to write some code into the memory
+at runtime, and use that to run processes), but can bloat the code size and tank
+efficiency. That's why I'm thinking of having two modes, including additional
+codewords for functions, or making the compiler check for arbitrary function
+calls.
+
+One can implement functions which essentially act as macros, so
+    int add(int x, int y)
+    {
+        return x + y;
+    }
+will expand in every spot to be x+y.
+
+However, that is far down the road. We'll start off with the very basics of
+char variables, arithmetic, comparisons, and control flow, all in one main
+function.
+
+Note that base brainfuck can only handle stdin and stdout. Any other files will
+have to be handled with piping
