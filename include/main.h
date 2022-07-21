@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 #include "argv_parse.h"
-#include "lexer.h"
+#include "lexer/lexer.h"
 #include "parser.h"
 #include "code_generator.h"
 

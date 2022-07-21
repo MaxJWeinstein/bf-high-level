@@ -1,4 +1,4 @@
-- Write argv_parse.c
+x Write argv_parse.c
 - Write lexer.c and tokens.c
 
 - Make an expandable lexer for C, starting with the basics

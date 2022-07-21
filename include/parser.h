@@ -5,7 +5,7 @@
 #include <stdlib.h>
 
 #include "ast.h"
-#include "tokens.h"
+#include "lexer/lexer.h"
 
 AST_T *parse(TOKEN_T tokens[], size_t size);
 

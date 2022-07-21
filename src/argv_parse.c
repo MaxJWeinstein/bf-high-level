@@ -33,5 +33,12 @@ void parse_args(int argc, char **argv, FILE **sourcep, FILE **outputp)
         char *source_name, *output_name;
         get_filenames(argc, argv, &source_name, &output_name);
 
-
+        if ((*sourcep = fopen(source_name, "r")) == NULL) {
+                perror("fopen");
+                exit(1);
+        }
+        if ((*outputp = fopen(output_name, "w+x")) == NULL) {
+                perror("fopen");
+                exit(1);
+        }
 }
